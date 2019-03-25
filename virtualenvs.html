@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Virtual Environments</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Virtual Environments
+
+ManoMano Lab by Eric
+
+---
+
+# Motivation
+
+[Virtualenv](https://pypi.python.org/pypi/virtualenv) is a tool to create isolated python environments.
+
+Useful when:
+ - Two applications use the same libraries but with need versions
+ - Two applications use different python versions
+ - One application needs a specific version of a library that must never be
+ updated
+ - You don't have root access on a server but you need to install libraries via
+ pip
+
+---
+
+class: center, middle
+
+<iframe src="https://giphy.com/embed/3o7abBP0nMjrdIvaCY" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/thedailyshow-wow-what-omg-3o7abBP0nMjrdIvaCY"></a></p>
+
+---
+
+# Installation
+
+`virtualenv` is installed via [pip](https://pypi.python.org/pypi/pip/), the
+python package manager. If you don't have pip, install it with:
+``` console
+$ sudo apt-get install python-pip
+```
+
+Check your installation:
+``` console
+$ pip --version
+```
+
+If you're good, run this:
+``` console
+$ pip install virtualenv
+```
+
+You should now have virtualenv installed, check with:
+``` console
+$ pip list | grep virtualenv
+```
+
+---
+
+# Getting Started
+
+Create your first virtual environment:
+``` console
+$ cd ./some/path/you/fancy/
+$ virtualenv venv
+```
+
+You can use python 2 (default) or 3:
+``` console
+$ virtualenv -p python3
+```
+
+Activate your brand new virtual environment:
+``` console
+$ source venv/bin/activate
+$ (venv) # your prompt should look like this now
+```
+
+Check what's inside:
+``` console
+$ (venv) python --version
+$ (venv) which python
+$ (venv) pip list
+$ (venv) which pip
+```
+
+---
+
+# Install librairies
+
+Installing libraries is as easy as:
+``` console
+$ (venv) pip install requests
+```
+
+Try to run a python interpreter and import the `requests` library:
+
+``` console
+$ (venv) python
+>>> import requests
+```
+
+You can freeze and export your project dependencies:
+``` console
+$ (venv) pip freeze > requirements.txt
+```
+
+Check what's inside the requirements.txt file:
+``` console
+$ (venv) cat requirements.txt
+```
+
+Install back libraries from a requirements.txt file:
+``` console
+$ (venv) pip install -r requirements.txt
+```
+
+---
+# Conclusion
+
+When you're done, exit the environment via
+``` console
+$ (venv) deactivate
+$ # your prompt looks like this now
+```
+
+Your virtualenv is just a folder called `venv`, and you can move it anywhere
+without breaking things.
+
+Read more about virtual environments on:
+ - [The Hitchiker's guide to
+ Python](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
+ - [pypy.python.org](https://pypi.python.org/pypi/virtualenv)
+
+---
+class: middle, center
+
+<iframe src="https://giphy.com/embed/5ArJanyCfxgiY" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/pusheen-5ArJanyCfxgiY"></a></p>
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
