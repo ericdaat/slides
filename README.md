@@ -8,3 +8,4 @@ This repository tracks all the presentation slides I made.
 - [Virtual Environments](./virtualenvs.html)
 - [Sentiment Classifier API](./sentiment_classifier_api.pdf)
 - [Word2Vec](./word2vec.pdf)
+- [Introduction to Git](./git.pdf)
